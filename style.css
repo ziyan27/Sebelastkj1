@@ -1,0 +1,296 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #3b76c0;
+    --background-color: #f0f4f8;
+    --surface-color: #ffffff;
+    --text-color: #333;
+    --text-color-light: #666;
+    --border-color: #ddd;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--surface-color);
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-sizing: border-box;
+    display: none;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.container.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+}
+
+#current-datetime {
+    font-size: 1rem;
+    color: var(--text-color-light);
+    margin-top: 5px;
+}
+
+/* Formulir dan Input */
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Tombol */
+.btn, .btn-secondary {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Tabel Absensi */
+.attendance-list-container {
+    margin-top: 30px;
+}
+
+#attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#attendance-table th, #attendance-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#attendance-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+#attendance-table tr:hover {
+    background-color: #f1f3f5;
+}
+
+/* Tombol Aksi dalam Tabel */
+.action-buttons button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}
+
+.edit-btn { background-color: #ffc107; color: white; border: none; border-radius: 4px; cursor: pointer; }
+.delete-btn { background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; }
+
+/* Modal */
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--surface-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--shadow);
+    position: relative;
+    animation: modal-fadein 0.3s ease-out;
+}
+
+@keyframes modal-fadein {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-color-light);
+}
+
+.close-btn:hover {
+    color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-secondary {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    #attendance-table th, #attendance-table td {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+/* Tambahkan di bagian bawah file style.css Anda */
+
+.date-header {
+    background-color: #e9ecef;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid #ced4da;
+    color: #495057;
+    text-transform: uppercase;
+}
+
+/* Ubah gaya tabel agar header tanggal tidak memiliki border bawah */
+#attendance-table th, #attendance-table td {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.date-header td {
+    border-bottom: none;
+}
+
+/* Container untuk membuat tabel dapat digulir */
+.attendance-list-container {
+    margin-top: 30px;
+    overflow-x: auto; /* Memungkinkan gulir horizontal jika konten melebihi lebar */
+}
+
+/* Penyesuaian khusus untuk layar kecil (mobile) */
+@media (max-width: 768px) {
+    /* Mengubah ukuran font di tabel agar lebih ringkas */
+    #attendance-table {
+        font-size: 0.9rem;
+        min-width: 600px; /* Lebar minimal tabel agar tidak terlalu sempit */
+    }
+
+    /* Mengurangi padding di sel tabel */
+    #attendance-table th, 
+    #attendance-table td {
+        padding: 8px;
+    }
+
+    /* Mengatur tombol aksi (edit dan hapus) */
+    .action-buttons button {
+        margin-right: 2px;
+        padding: 5px; /* Mengurangi padding tombol */
+        font-size: 0.75rem; /* Mengurangi ukuran font tombol */
+    }
+
+    /* Memastikan tombol tidak terlalu besar di layar kecil */
+    .edit-btn, .delete-btn {
+        width: 45px; /* Atur lebar tombol agar seragam */
+    }
+}

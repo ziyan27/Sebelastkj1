@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Absensi XII TKJ 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="login-container" class="container active">
+        <h2>Login Aplikasi Absensi</h2>
+        <form id="login-form">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Masuk</button>
+        </form>
+    </div>
+
+    <div id="app-container" class="container">
+        <header>
+            <div class="header-info">
+                <h1>Absensi Kelas XII TKJ 1</h1>
+                <div id="current-datetime"></div>
+            </div>
+            <button id="logout-btn" class="btn-secondary">Keluar</button>
+        </header>
+        
+        <main>
+            <form id="attendance-form">
+                <div class="input-group">
+                    <label for="student-name">Nama Siswa</label>
+                    <input type="text" id="student-name" list="student-list" placeholder="Pilih atau ketik nama siswa..." required>
+                    <datalist id="student-list"></datalist>
+                </div>
+                <div class="input-group">
+                    <label for="status">Status Kehadiran</label>
+                    <select id="status" required>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Sakit">Sakit</option>
+                        <option value="Izin">Izin</option>
+                        <option value="Alpha">Alpha</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Tambah Absensi</button>
+            </form>
+
+            <div class="attendance-list-container">
+                <h3>Daftar Absensi Hari Ini</h3>
+                <table id="attendance-table">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Status</th>
+                            <th>Hari</th>
+                            <th>Tanggal</th>
+                            <th>Waktu</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendance-body">
+                        </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Edit Absensi</h2>
+            <form id="edit-form">
+                <div class="input-group">
+                    <label for="edit-name">Nama Siswa</label>
+                    <input type="text" id="edit-name" required>
+                </div>
+                <div class="input-group">
+                    <label for="edit-status">Status Kehadiran</label>
+                    <select id="edit-status" required>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Sakit">Sakit</option>
+                        <option value="Izin">Izin</option>
+                        <option value="Alpha">Alpha</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Simpan Perubahan</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
